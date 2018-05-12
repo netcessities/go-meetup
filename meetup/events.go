@@ -183,3 +183,25 @@ func (c *Client) GetRecommendedEvents(params *GetRecommendedEventsParams) ([]*Ev
 
 	return events, nil
 }
+
+func (c *Client) GetMyEvents2(params *GetRecommendedEventsParams) ([]*Event, error) {
+	url := fmt.Sprintf("%v/self/events", c.BaseURL)
+
+	url, err := addQueryParams(url, params)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := c.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	var events []*Event
+	err = c.Do(req, &events)
+	if err != nil {
+		return nil, err
+	}
+
+	return events, nil
+}

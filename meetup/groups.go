@@ -13,6 +13,7 @@ type Group struct {
 	City                 string          `json:"city"`
 	Country              string          `json:"country"`
 	LocalizedCountryName string          `json:"localized_country_name"`
+	LocalizedLocation	 string			 `json:"localized_location"`
 	State                string          `json:"state"`
 	JoinMode             string          `json:"join_mode"`
 	Visibility           string          `json:"visibility"`
